@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "mongodb": "5.7",
+    "prompt-sync": "^4.2.0"
+  },
+  "name": "fbla-24-project-new-js",
+  "version": "1.0.0",
+  "main": "AccessDatabase.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
