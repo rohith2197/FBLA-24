@@ -6,7 +6,8 @@ const secretKey = 'ahsfbla';
 
 //connects to database
 async function connect() {
-    uri = "mongodb+srv://ahsfbla:ahsfbla123@ahs-fbla.onf48qi.mongodb.net/?retryWrites=true&w=majority";
+    // uri = "mongodb+srv://ahsfbla:ahsfbla123@ahs-fbla.onf48qi.mongodb.net/?retryWrites=true&w=majority";
+    uri = "mongodb+srv://ahsfbla:ahsfbla123@ahs-fbla.onf48qi.mongodb.net/";
     client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     db = client.db("FBLA_DATA");
     collection = db.collection('users')
@@ -79,8 +80,9 @@ async function getSpecificDocument(documentIndex){
 }
 
 //formats the data given all the necessary data about a user
-async function formatData(user, pass, first, own){
+async function formatData(valid, user, pass, first, own){
     return {
+      validity : await encrypt(valid), //string of boolean value
       username : await encrypt(user),
       password : await encrypt(pass),
       first_name : await encrypt(first),
@@ -147,7 +149,7 @@ async function removeOwner(documentNumber){
   await edit(documentNumber, "owner", "false");
 }
 async function checkOwner(documentNumber){
-  return  ((await getAndDecrypt(documentNumber))[3] == "true");
+  return  ((await getAndDecrypt(documentNumber))[4] == "true");
 }
 
 async function switchOwner(old_owner, new_owner){
@@ -155,17 +157,56 @@ async function switchOwner(old_owner, new_owner){
   await makeOwner(new_owner)
 }
 
-async function addAccount(key_input, username, password, first_name){
-  if(key_input == key){
-    await insertDocument(formatData(username, password, first_name, "false"));
-    return true;
+async function addAccount(validity, username, password, first_name){
+  await insertDocument(await formatData(validity, username, password, first_name, "false"));
+}
+
+//test
+async function getValidity(){
+  return  ((await getAndDecrypt(documentNumber))[0] == "true");
+}
+
+//test
+async function addValidity(){
+  await edit(documentNumber, "validity", "true")
+}
+
+//test
+async function removeValidity(){
+  await edit(documentNumber, "validity", "false")
+}
+
+async function checkCredentials(username, password) {
+  await connect();
+  var count = await getDocumentCount();
+  for(var i = 1; i <= count; i++){
+    var acct = await getAndDecrypt(i);
+    if(acct[1] == username && acct[2] == password){
+      await client.close();
+      return true;
+    }
   }
+  await client.close();
   return false;
+
 }
 
-async function main() {
-    await connect();
-    await client.close();
-}
+export const check = (username, password) => {
+  return checkCredentials(username, password);
+};
 
-main();
+
+
+// async function main() {
+//    await connect();
+//     await listAllData();
+//     // await addAccount("true", "rohith", "12345", "Rohith")
+//     // await removeDocumentByIndex(1);
+//     // await removeDocumentByIndex(1);
+//     // await removeDocumentByIndex(1);
+//     // await listAllData();
+//     console.log(await checkCredentials("rohith", "12345"));
+//     await client.close();
+// }
+
+// main();
