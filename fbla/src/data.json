@@ -1,0 +1,283 @@
+[
+    {
+        "company_name": "InnoTech Solutions",
+        "org_type": "Technology",
+        "resources": "Innovation Hub",
+        "contact_email": "info@innotechsolutions.com",
+        "company_website": "www.innotechsolutions.com",
+        "company_summary": "Leading technology innovator",
+        "products": "Tech gadgets",
+        "funding_amount": 5000
+    },
+    {
+        "company_name": "QuantumDynamics",
+        "org_type": "Research",
+        "resources": "Quantum Computing",
+        "contact_email": "info@quantumdynamics.com",
+        "company_website": "www.quantumdynamics.com",
+        "company_summary": "Advancing quantum technologies",
+        "products": "Quantum processors",
+        "funding_amount": 8000
+    },
+    {
+        "company_name": "EcoSolutions Inc.",
+        "org_type": "Environment",
+        "resources": "Green Initiatives",
+        "contact_email": "info@ecosolutions.com",
+        "company_website": "www.ecosolutions.com",
+        "company_summary": "Sustainable solutions provider",
+        "products": "Environmental services",
+        "funding_amount": 6000
+    },
+    {
+        "company_name": "DataVista",
+        "org_type": "Analytics",
+        "resources": "Data Science",
+        "contact_email": "info@datavista.com",
+        "company_website": "www.datavista.com",
+        "company_summary": "Transforming data into insights",
+        "products": "Analytics software",
+        "funding_amount": 4000
+    },
+    {
+        "company_name": "GalacticExplorers",
+        "org_type": "Space Exploration",
+        "resources": "Astro Research",
+        "contact_email": "info@galacticexplorers.com",
+        "company_website": "www.galacticexplorers.com",
+        "company_summary": "Unveiling the mysteries of space",
+        "products": "Spacecraft technologies",
+        "funding_amount": 10000
+    },
+    {
+        "company_name": "SynthBio Innovations",
+        "org_type": "Biotechnology",
+        "resources": "Synthetic Biology",
+        "contact_email": "info@synthbioinnovations.com",
+        "company_website": "www.synthbioinnovations.com",
+        "company_summary": "Pioneering synthetic biology",
+        "products": "Bioengineered products",
+        "funding_amount": 12000
+    },
+    {
+        "company_name": "FutureFoods Ltd.",
+        "org_type": "Food and Beverage",
+        "resources": "Food Innovation",
+        "contact_email": "info@futurefoods.com",
+        "company_website": "www.futurefoods.com",
+        "company_summary": "Revolutionizing food industry",
+        "products": "Future-friendly cuisine",
+        "funding_amount": 9000
+    },
+    {
+        "company_name": "PixelCraft Studios",
+        "org_type": "Arts and Entertainment",
+        "resources": "Digital Arts",
+        "contact_email": "info@pixelcraftstudios.com",
+        "company_website": "www.pixelcraftstudios.com",
+        "company_summary": "Crafting digital masterpieces",
+        "products": "Digital entertainment",
+        "funding_amount": 11000
+    },
+    {
+        "company_name": "AquaTech Innovate",
+        "org_type": "Technology",
+        "resources": "Water Solutions",
+        "contact_email": "info@aquatechinnovate.com",
+        "company_website": "www.aquatechinnovate.com",
+        "company_summary": "Leading water technology",
+        "products": "Water purification",
+        "funding_amount": 15000
+    },
+    {
+        "company_name": "RoboBuilders Inc.",
+        "org_type": "Robotics",
+        "resources": "Robotics Engineering",
+        "contact_email": "info@robobuilders.com",
+        "company_website": "www.robobuilders.com",
+        "company_summary": "Building the future of robotics",
+        "products": "Robotic systems",
+        "funding_amount": 8000
+    },
+    {
+        "company_name": "BioGenome Solutions",
+        "org_type": "Genetics",
+        "resources": "Genomic Research",
+        "contact_email": "info@biogenomesolutions.com",
+        "company_website": "www.biogenomesolutions.com",
+        "company_summary": "Decoding the genetic blueprint",
+        "products": "Genetic therapies",
+        "funding_amount": 6000
+    },
+    {
+        "company_name": "SkyTech Innovations",
+        "org_type": "Aviation",
+        "resources": "Aerospace Engineering",
+        "contact_email": "info@skytechinnovations.com",
+        "company_website": "www.skytechinnovations.com",
+        "company_summary": "Pushing the limits of flight",
+        "products": "Aerospace technologies",
+        "funding_amount": 9000
+    },
+    {
+        "company_name": "GreenSpark Energy",
+        "org_type": "Energy",
+        "resources": "Clean Power",
+        "contact_email": "info@greensparkenergy.com",
+        "company_website": "www.greensparkenergy.com",
+        "company_summary": "Harnessing renewable energy",
+        "products": "Clean energy solutions",
+        "funding_amount": 5000
+    },
+    {
+        "company_name": "FutureGaming Tech",
+        "org_type": "Gaming",
+        "resources": "Game Development",
+        "contact_email": "info@futuregamingtech.com",
+        "company_website": "www.futuregamingtech.com",
+        "company_summary": "Gaming innovation at its best",
+        "products": "Next-gen gaming",
+        "funding_amount": 14000
+    },
+
+    {
+        "company_name": "TechConnect Innovations",
+        "org_type": "Technology",
+        "resources": "Tech Hub",
+        "contact_email": "info@techconnectinnovations.com",
+        "company_website": "www.techconnectinnovations.com",
+        "company_summary": "Connecting through technology",
+        "products": "Tech solutions",
+        "funding_amount": 7000
+    },
+    {
+        "company_name": "SolarTech Solutions",
+        "org_type": "Energy",
+        "resources": "Solar Power",
+        "contact_email": "info@solartechsolutions.com",
+        "company_website": "www.solartechsolutions.com",
+        "company_summary": "Harvesting solar energy",
+        "products": "Solar panels",
+        "funding_amount": 3000
+    },
+    {
+        "company_name": "HealthMind Innovations",
+        "org_type": "Healthcare",
+        "resources": "Mental Wellness",
+        "contact_email": "info@healthmindinnovations.com",
+        "company_website": "www.healthmindinnovations.com",
+        "company_summary": "Promoting mental well-being",
+        "products": "Health apps",
+        "funding_amount": 5000
+    },
+    {
+        "company_name": "SmartHomes Inc.",
+        "org_type": "Technology",
+        "resources": "Smart Home Solutions",
+        "contact_email": "info@smarthomesinc.com",
+        "company_website": "www.smarthomesinc.com",
+        "company_summary": "Creating intelligent homes",
+        "products": "Smart home devices",
+        "funding_amount": 8000
+    },
+    {
+        "company_name": "CleanEats",
+        "org_type": "Food and Beverage",
+        "resources": "Clean Eating",
+        "contact_email": "info@cleaneats.com",
+        "company_website": "www.cleaneats.com",
+        "company_summary": "Encouraging healthy eating",
+        "products": "Clean food options",
+        "funding_amount": 4000
+    },
+    {
+        "company_name": "PixelPrint Studios",
+        "org_type": "Arts and Entertainment",
+        "resources": "Printed Arts",
+        "contact_email": "info@pixelprintstudios.com",
+        "company_website": "www.pixelprintstudios.com",
+        "company_summary": "Transforming visions into prints",
+        "products": "Art prints",
+        "funding_amount": 6000
+    },
+    {
+        "company_name": "GreenVista",
+        "org_type": "Environment",
+        "resources": "Eco-friendly Initiatives",
+        "contact_email": "info@greenvista.com",
+        "company_website": "www.greenvista.com",
+        "company_summary": "Promoting environmental awareness",
+        "products": "Green initiatives",
+        "funding_amount": 3000
+    },
+    {
+        "company_name": "CodeCraft Innovations",
+        "org_type": "Technology",
+        "resources": "Coding Education",
+        "contact_email": "info@codecraftinnovations.com",
+        "company_website": "www.codecraftinnovations.com",
+        "company_summary": "Empowering through coding",
+        "products": "Coding courses",
+        "funding_amount": 7000
+    },
+    {
+        "company_name": "BioHealth Solutions",
+        "org_type": "Healthcare",
+        "resources": "Biomedical Research",
+        "contact_email": "info@biohealthsolutions.com",
+        "company_website": "www.biohealthsolutions.com",
+        "company_summary": "Advancing healthcare through research",
+        "products": "Biomedical innovations",
+        "funding_amount": 4000
+    },
+    {
+        "company_name": "FutureFashion Tech",
+        "org_type": "Fashion",
+        "resources": "Tech-driven Fashion",
+        "contact_email": "info@futurefashiontech.com",
+        "company_website": "www.futurefashiontech.com",
+        "company_summary": "Fashion meets technology",
+        "products": "Tech-infused apparel",
+        "funding_amount": 6000
+    },
+    {
+        "company_name": "SkyHigh Drones",
+        "org_type": "Technology",
+        "resources": "Drone Technology",
+        "contact_email": "info@skyhighdrones.com",
+        "company_website": "www.skyhighdrones.com",
+        "company_summary": "Elevating perspectives with drones",
+        "products": "Drone solutions",
+        "funding_amount": 3000
+    },
+    {
+        "company_name": "GreenTech Innovate",
+        "org_type": "Environment",
+        "resources": "Green Technologies",
+        "contact_email": "info@greentechinnovate.com",
+        "company_website": "www.greentechinnovate.com",
+        "company_summary": "Innovating for a sustainable future",
+        "products": "Green tech solutions",
+        "funding_amount": 8000
+    },
+    {
+        "company_name": "MindCraft Education",
+        "org_type": "Education",
+        "resources": "Mindful Learning",
+        "contact_email": "info@mindcrafteducation.com",
+        "company_website": "www.mindcrafteducation.com",
+        "company_summary": "Shaping young minds through education",
+        "products": "Educational programs",
+        "funding_amount": 4000
+    },
+    {
+        "company_name": "TechSprint Solutions",
+        "org_type": "Technology",
+        "resources": "Tech Accelerator",
+        "contact_email": "info@techsprintsolutions.com",
+        "company_website": "www.techsprintsolutions.com",
+        "company_summary": "Accelerating tech innovations",
+        "products": "Tech startup support",
+        "funding_amount": 6000
+    }
+]

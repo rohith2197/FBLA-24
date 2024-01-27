@@ -1,17 +1,21 @@
 {
   "dependencies": {
     "crypto-js": "^4.1.1",
-    "mongodb": "5.7",
+    "mongodb": "^5.9.2",
     "prompt-sync": "^4.2.0"
   },
   "name": "fbla-24-project-new-js",
   "version": "1.0.0",
   "main": "AccessDatabase.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "vite-plugin-rewrite-all": "^1.0.2"
+  }
 }

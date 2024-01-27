@@ -2,52 +2,61 @@
 
 <template>
   <div id="app">
-    <!-- Your main app content goes here -->
-    <img src="@/assets/background.png" alt="Background" class="background" />
-    <div class="welcome-text">Welcome Back!</div>
-    <div class="signin-text">Sign In</div>
-    <div class="signin-container">
+    <div v-if="!showSuccessfulPage" class="container">
+      <img src="@/assets/background.png" alt="Background" class="background" />
+      <div class="welcome-text">Welcome Back!</div>
+      <div class="signin-text">Sign In</div>
+      <div class="signin-container">
         <div>
           <input v-model="username" type="text" placeholder="Username" class="input-box" />
           <br />
           <input v-model="password" type="password" placeholder="Password" class="password-box" />
           <br />
           <button @click="displayInputText" class="enter-button">Enter</button>
-          <div v-if="inputText">
-            <p>Entered Text: {{ inputText }}</p>
-          </div>
         </div>
+      </div>
     </div>
+    <router-view v-if="showSuccessfulPage" />
   </div>
 </template>
 
 <script>
-// import * as Authentication from '/Users/rohithpallamreddy/Documents/GitHub/FBLA-24/Authentication.js';
-// import {checkCredentials} from '/Users/rohithpallamreddy/Documents/GitHub/FBLA-24/Authentication.js';
+import axios from 'axios';
+
 export default {
   data() {
     return {
       username: '',
       password: '',
-      inputText: '', // To store the entered text
+      inputText: '',
+      showSuccessfulPage: false,
     };
   },
   methods: {
-    displayInputText() {
-      // Combine the username and password and store it in inputText
-      // this.inputText = 'Username: ' + Authentication.checkCredentials(this.username, this.password);
-      // this.inputText = `Username: ${this.username}, Password: ${this.password}`;
-      this.buttonClicked = !this.buttonClicked;
-      // Reset buttonClicked after a short delay to allow for repeated clicks
-      setTimeout(() => {
-        this.buttonClicked = false;
-      }, 300);
+    async displayInputText() {
+      try {
+        const response = await axios.get("/src/authentication.json");
+
+        if (!response.data) {
+          throw new Error('Invalid JSON data structure');
+        }
+
+        const { username: expectedUsername, password: expectedPassword } = response.data;
+
+        if (this.username === expectedUsername && this.password === expectedPassword) {
+          this.showSuccessfulPage = true;
+          this.$router.push({ name: 'successful' });
+        }
+      } catch (error) {
+        console.error('Error fetching or parsing JSON file:', error);
+      }
     },
   },
 };
 </script>
 
 <style>
+/* Add global styles or adjust existing styles as needed */
 body {
   margin: 0;
   padding: 0;
@@ -55,13 +64,19 @@ body {
   overflow: hidden;
 }
 
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
 .background {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire background */
+  object-fit: cover;
 }
 
 .signin-container {
@@ -79,7 +94,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   font-size: 6em;
-  font-family: 'Rubik', sans-serif; /* Use Rubik font */
+  font-family: 'Rubik', sans-serif;
   font-weight: 550;
   color: #000;
 }
@@ -90,7 +105,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   font-size: 3em;
-  font-family: 'Rubik', sans-serif; /* Use Rubik font */
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
   color: #000;
 }
@@ -101,10 +116,9 @@ body {
   font-size: 1em;
   width: 352px;
   height: 23px;
-  color: #000; /* Set the text color to black */
-  border: 2px solid #000; /* Add a border */
-  border-radius: 50px; /* Add rounded corners */
-  transition: transform 0.3s ease;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 50px;
 }
 
 .password-box {
@@ -113,10 +127,9 @@ body {
   font-size: 1em;
   width: 352px;
   height: 23px;
-  color: #000; /* Set the text color to black */
-  border: 2px solid #000; /* Add a border */
-  border-radius: 50px; /* Add rounded corners */
-  transition: transform 0.3s ease;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 50px;
 }
 
 .enter-button {
@@ -131,33 +144,15 @@ body {
   cursor: pointer;
   border-radius: 50px;
   font-weight: 650;
-  border: 2px solid #000; /* Add a border */
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 2px solid #000;
 }
 
 .enter-button:hover {
-  background-color: #a0a0a0; /* Change background color on hover */
-  transform: scale(0.95);
+  background-color: #a0a0a0;
 }
 
 .enter-button:active {
-  background-color: #808080; /* Change background color when button is clicked */
-  transform: scale(0.9); /* Apply a shrink effect */
-  animation: shake 0.3s ease;
+  background-color: #808080;
 }
 
-@keyframes shake {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-45px);
-  }
-  50% {
-    transform: translateX(45px);
-  }
-  75% {
-    transform: translateX(-45px);
-  }
-}
 </style>
