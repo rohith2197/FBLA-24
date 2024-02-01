@@ -11,9 +11,36 @@
     <button @click="toggleHelpPopup" class="question-button">Help</button>
     <!-- Help Popup -->
     <div v-if="showHelpPopup" class="help-popup">
-      <h2>Help Information</h2>
+      <h2>Tutorial</h2>
       <!-- Add your help content here -->
-    <p>This is the help content. Replace it with your actual help informat  ion.</p>
+    <p>DataSync is an application that assists the CTAE Department in tracking, changing, and analyzing information about community partners and sponsors. </p>
+    <div class="slideshow-container">
+  <div class="mySlides" style="display: block;"> <!-- Set display: block for the first slide -->
+    <img src="@/assets/tut3.png" alt="Tutorial Slide 1" />
+  </div>
+  <div class="mySlides">
+    <img src="@/assets/tut1.png" alt="Tutorial Slide 2" />
+  </div>
+  <div class="mySlides">
+    <img src="@/assets/tut2.png" alt="Tutorial Slide 3" />
+  </div>
+  <!-- Add more slides as needed -->
+
+  <!-- Navigation buttons -->
+  <a class="prev" @click="plusSlides(-1)">&#10094;</a>
+  <a class="next" @click="plusSlides(1)">&#10095;</a>
+</div>
+<h2>Interactive Q&A Bot</h2>
+  <p>Welcome to the Interactive Q&A bot! Type in your questions.</p>
+
+  <!-- User input field -->
+  <input v-model="userQuestion" placeholder="Type your question here" class="question-input" />
+<button @click="askQuestion" class="qa-button">Ask</button> <!-- Button to trigger Q&A -->
+
+  <!-- Bot response area -->
+  <div class="bot-response">
+    {{ botResponse }}
+  </div>
     <button @click="toggleHelpPopup" class = "endhelp">Close</button>
 </div>
 
@@ -39,11 +66,11 @@
             <label>Products:</label> <p>{{ company.products }}</p>
 
             <button @click="removeCompany(company)" class="delete-button">
-              <img src="/Users/rohithpallamreddy/Documents/GitHub/FBLA-24/fbla/src/assets/trash-can.png" alt="Delete" style="width: 30px; height: 30px;" />
+              <img src="@/assets/trash-can.png" alt="Delete" style="width: 30px; height: 30px;" />
             </button>
           </div>
           <button v-if="company.showDetails" @click.stop="editCompany(company)" class="edit-button">
-            <img src="/Users/rohithpallamreddy/Documents/GitHub/FBLA-24/fbla/src/assets/pencil-icon-transparent-free-png.png" alt="Edit" style="width: 46px; height: 45px;" />
+            <img src="@/assets/pencil-icon-transparent-free-png.png" alt="Edit" style="width: 46px; height: 45px;" />
           </button>
         </div>
           <!-- New Widget for Adding a Company -->
@@ -99,6 +126,9 @@ export default {
       newCompany: {
         name: '',
         fundingAmount: 0,
+      showHelpPopup: false,
+      userQuestion: '',
+      botResponse: '',
         // ... other properties ...
       },
       contact_email_error: false,
@@ -106,6 +136,7 @@ export default {
       company_website_error: false,
       company_website_error_message: '',
       showHelpPopup: false,
+      slideIndex: 1,
     };
   },
   computed: {
@@ -119,6 +150,44 @@ export default {
 
   },
   methods: {
+    toggleHelpPopup() {
+    this.showHelpPopup = !this.showHelpPopup;
+    this.botResponse = ''; // Clear bot response when opening/closing the help popup
+  },
+
+  askQuestion() {
+    this.handleUserQuestion();
+  },
+    handleUserQuestion() {
+    const question = this.userQuestion.trim().toLowerCase();
+
+    // Simple bot responses based on user input
+    if (question === 'x') {
+      this.botResponse = 'Dubz';
+    } else {
+      this.botResponse = "I don't understand. Could you reword your question.";
+    }
+
+    // Clear the user input field
+    this.userQuestion = '';
+  },
+    plusSlides(n) {
+      this.showSlides((this.slideIndex += n));
+    },
+    showSlides(n) {
+      let i;
+      const slides = document.getElementsByClassName('mySlides');
+      if (n > slides.length) {
+        this.slideIndex = 1;
+      }
+      if (n < 1) {
+        this.slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      slides[this.slideIndex - 1].style.display = 'block';
+    },
     toggleHelpPopup() {
       this.showHelpPopup = !this.showHelpPopup;
     },
@@ -681,7 +750,7 @@ body {
   border-radius: 10px;
   z-index: 9; /* Set a higher z-index to ensure it appears above other elements */
   width: 70%; /* Adjust the width as needed */
-  height: 60%;
+  height: 80%;
 
 }
 
@@ -692,7 +761,7 @@ body {
 }
 
 .help-popup p {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   z-index: 10;
 }
 
@@ -703,6 +772,7 @@ body {
 }
 
 .endhelp {
+  bottom: 5px ;
   size: 1.5em;
   border: none; /* Remove border */
   background-color: #ccc; /* Light grey background */
@@ -715,6 +785,45 @@ body {
   border-radius: 20px;
   /* border-width: 3px; */
   border: 1px solid #000;
+}
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+  top: 0%;
+  left: 24%;
+}
+
+.mySlides {
+  display: none;
+}
+
+img {
+  width: 50%;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 40%;
+  width: 45%;
+  padding: 16px;
+  margin-top: -22px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  cursor: pointer;
+}
+
+.prev {
+  left: -5%;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
 </style>
